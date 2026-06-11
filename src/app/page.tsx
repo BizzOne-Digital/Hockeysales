@@ -45,53 +45,78 @@ export default function HomePage() {
       </section>
 
       {/* ── Featured Categories ── */}
-      <section className="py-20 px-6 max-w-[1280px] mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="font-montserrat text-[32px] font-bold text-black mb-1">Featured Product Categories</h2>
-          <div className="w-20 h-1 bg-[#006399] mx-auto mt-3" />
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-6 max-w-[1280px] mx-auto">
+  <div className="text-center mb-10 sm:mb-14 lg:mb-20">
+    <h2 className="font-montserrat text-2xl sm:text-[28px] lg:text-[32px] font-bold text-black mb-1">
+      Featured Product Categories
+    </h2>
+    <div className="w-16 sm:w-20 h-1 bg-[#006399] mx-auto mt-3" />
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+    {[
+      {
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBlmNyY9KhjohNNq4AGjn4fmEpY7iINbFkEBoNfAp3WEnZQDiMCUjgvAlwT2kS_Jp4S1bOFjin6kuaHiTFEUd7u6uw4aTzi-CkGdXiJL4Zwpw69BkvIPmX6kBzP65iv7amWSZ5oET7e3zt4Qg4pMCD12txhux5SSP5Hh632FECYtPt5kQNBbkOc84Zzl_XvEnR00Ybmxm6IvuuJKHV_Q6Gt9y_woiYTXp04zMKvo77WtKpEeTYxpaWyUnMpbRN25m9_ptAig6M9Bg",
+        alt: "Hockey sticks",
+        title: "Hockey Sticks",
+        desc: "Ultra-light carbon fiber sticks engineered for maximum power and precision.",
+        href: "/products#sticks",
+        cta: "Explore Sticks",
+      },
+      {
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCaGDGL_rNEgH3NyuujS_EVTUQKormwZKrTxvKIHIiAWz53PBE75H0nkFRzsNJDxkD8mz2R1uMK-djAb5NFyCjAzXyltDan_PXn_agWUkOEFI-jWmledBMgvxKUV033RWe9zN9q5pCdWTJ00q6JxKMGm-aM3F3mt7h3ean_VROr2T9jmQ8EUG8tAW30rNqe-mOGxC64Oh1jkme-dTHZDXHAEhBfuEFe07AVSOVdEOU3fupSmPJOFr98lHoqYgUwRcJ2mlXbBQRZMw",
+        alt: "Hockey skates",
+        title: "Professional Skates",
+        desc: "Next-generation fit and blade technology for unmatched agility and speed.",
+        href: "/products#skates",
+        cta: "View Skates",
+      },
+      {
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDASapxT8s8K7fIbb2IeRyROKCmtzGWANU5FBQqXrx0PtAGGNitwS14o1QfJcKP6DFANjys6lEY2y2g4EVp0uV8o-mXqVzRau_4E4VDSOEnllho-o3oyujN4J_ln6NlyPDHLSWvJoWaanwm8Qn9-hcLF76U5EX2PWVSRiDhoH4cr6Ov-I7AuWjQUbBUhMUxC_Lu5eovO8o9JhAyGuujHjMeH97689_HtCZha6V0WPQwR4AndxtpRmYN90W5kkWQxlmy6WBXE6j-0Q",
+        alt: "CCM and Knapper gear",
+        title: "CCM & Knapper Gear",
+        desc: "Official protective gear and apparel from the industry's most trusted brands.",
+        href: "/products",
+        cta: "Shop Brands",
+      },
+    ].map((cat) => (
+      <div
+        key={cat.title}
+        className="group relative overflow-hidden rounded-lg bg-white border border-[#c5c6cd] hover-card transition-all duration-300"
+      >
+        <div className="aspect-[4/3] sm:aspect-[4/5] overflow-hidden relative">
+          <Image
+            src={cat.img}
+            alt={cat.alt}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBlmNyY9KhjohNNq4AGjn4fmEpY7iINbFkEBoNfAp3WEnZQDiMCUjgvAlwT2kS_Jp4S1bOFjin6kuaHiTFEUd7u6uw4aTzi-CkGdXiJL4Zwpw69BkvIPmX6kBzP65iv7amWSZ5oET7e3zt4Qg4pMCD12txhux5SSP5Hh632FECYtPt5kQNBbkOc84Zzl_XvEnR00Ybmxm6IvuuJKHV_Q6Gt9y_woiYTXp04zMKvo77WtKpEeTYxpaWyUnMpbRN25m9_ptAig6M9Bg",
-              alt: "Hockey sticks",
-              title: "Hockey Sticks",
-              desc: "Ultra-light carbon fiber sticks engineered for maximum power and precision.",
-              href: "/products#sticks",
-              cta: "Explore Sticks",
-            },
-            {
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCaGDGL_rNEgH3NyuujS_EVTUQKormwZKrTxvKIHIiAWz53PBE75H0nkFRzsNJDxkD8mz2R1uMK-djAb5NFyCjAzXyltDan_PXn_agWUkOEFI-jWmledBMgvxKUV033RWe9zN9q5pCdWTJ00q6JxKMGm-aM3F3mt7h3ean_VROr2T9jmQ8EUG8tAW30rNqe-mOGxC64Oh1jkme-dTHZDXHAEhBfuEFe07AVSOVdEOU3fupSmPJOFr98lHoqYgUwRcJ2mlXbBQRZMw",
-              alt: "Hockey skates",
-              title: "Professional Skates",
-              desc: "Next-generation fit and blade technology for unmatched agility and speed.",
-              href: "/products#skates",
-              cta: "View Skates",
-            },
-            {
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDASapxT8s8K7fIbb2IeRyROKCmtzGWANU5FBQqXrx0PtAGGNitwS14o1QfJcKP6DFANjys6lEY2y2g4EVp0uV8o-mXqVzRau_4E4VDSOEnllho-o3oyujN4J_ln6NlyPDHLSWvJoWaanwm8Qn9-hcLF76U5EX2PWVSRiDhoH4cr6Ov-I7AuWjQUbBUhMUxC_Lu5eovO8o9JhAyGuujHjMeH97689_HtCZha6V0WPQwR4AndxtpRmYN90W5kkWQxlmy6WBXE6j-0Q",
-              alt: "CCM and Knapper gear",
-              title: "CCM & Knapper Gear",
-              desc: "Official protective gear and apparel from the industry's most trusted brands.",
-              href: "/products",
-              cta: "Shop Brands",
-            },
-          ].map((cat) => (
-            <div key={cat.title} className="group relative overflow-hidden rounded-lg bg-white border border-[#c5c6cd] hover-card transition-all duration-300">
-              <div className="aspect-[4/5] overflow-hidden relative">
-                <Image src={cat.img} alt={cat.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-8">
-                <h3 className="font-montserrat text-2xl font-bold text-black mb-2">{cat.title}</h3>
-                <p className="font-inter text-base text-[#44474d] mb-4">{cat.desc}</p>
-                <Link href={cat.href} className="flex items-center gap-1 text-[#006399] font-inter font-semibold text-sm tracking-wide group-hover:gap-2 transition-all">
-                  {cat.cta} <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>arrow_forward</span>
-                </Link>
-              </div>
-            </div>
-          ))}
+        <div className="p-5 sm:p-6 lg:p-8">
+          <h3 className="font-montserrat text-xl sm:text-2xl font-bold text-black mb-1 sm:mb-2">
+            {cat.title}
+          </h3>
+          <p className="font-inter text-sm sm:text-base text-[#44474d] mb-3 sm:mb-4">
+            {cat.desc}
+          </p>
+          <Link
+            href={cat.href}
+            className="flex items-center gap-1 text-[#006399] font-inter font-semibold text-sm tracking-wide group-hover:gap-2 transition-all"
+          >
+            {cat.cta}
+            <span
+              className="material-symbols-outlined"
+              style={{ fontSize: "18px" }}
+            >
+              arrow_forward
+            </span>
+          </Link>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* ── Why Choose Us ── */}
       <section className="bg-[#edeeef] py-20">
