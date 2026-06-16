@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -34,9 +35,12 @@ export default function Navbar() {
       <div className="flex justify-between items-center w-full px-4 sm:px-8 lg:px-20 h-full max-w-[1280px] mx-auto">
         <Link
           href="/"
-          className="font-montserrat text-lg sm:text-2xl font-extrabold text-black tracking-tighter"
+          className="flex items-center gap-3"
         >
-          Strides Hockey Sales
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+            <Image src="/logo.png" alt="Strides Hockey Sales" fill className="object-contain" />
+          </div>
+          
         </Link>
 
         <div className="hidden md:flex items-center space-x-8 lg:space-x-12">

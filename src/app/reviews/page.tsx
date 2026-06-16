@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 const reviews = [
   { name: "Alex MacKenzie", role: "Semi-Pro Forward", rating: 5, quote: "The stick selection at Strides is unmatched. Found exactly what I needed for my shot style, and the delivery was incredibly fast. The Pro Series Carbon is a game-changer.", verified: true },
-  { name: "Sarah Miller", role: "University Goalie", rating: 5, quote: "I've been buying my Knapper gear from them for years. Their knowledge of goalie equipment and fit is the best in the business. Harvey personally helped me find the right pads.", verified: true },
   { name: "James Chen", role: "League Coordinator", rating: 5, quote: "Excellent service and high-quality products. They really take the time to make sure you're getting the right equipment for your level. Ordered 20 sticks for our league — perfect.", verified: true },
   { name: "Marcus Thompson", role: "AAA Defenseman", rating: 5, quote: "The CCM skates I got from Strides are the best I've ever worn. The fit was perfect right out of the box. I won't shop anywhere else for my gear.", verified: true },
   { name: "Carly Nguyen", role: "Women's League Captain", rating: 5, quote: "Finally a hockey shop that understands what women players need. Great selection, fair prices, and genuinely helpful staff. My whole team orders from Strides now.", verified: true },

@@ -48,7 +48,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-montserrat text-2xl font-bold mb-1">Harvey Boutilier</h3>
-                    <p className="font-inter text-base text-[#44474d]">General Manager &amp; Pro-Stock Specialist</p>
+                    <p className="font-inter text-base text-[#44474d]">Owner / Operator</p>
                   </div>
                 </div>
               </div>
@@ -58,9 +58,8 @@ export default function ContactPage() {
                 {[
                   { icon: "call", label: "Phone", value: "+1 (902) 578-8000", href: "tel:+19025788000" },
                   { icon: "mail", label: "Email", value: "strideshockeysales01@gmail.com", href: "mailto:strideshockeysales01@gmail.com" },
-                  { icon: "location_on", label: "Address", value: "6479 Healey Rd, Caledon East, ON L7C 0X1", href: "https://maps.google.com/?q=6479+Healey+Rd,+Caledon+East,+ON+L7C+0X1" },
                 ].map((item) => (
-                  <a key={item.label} href={item.href} target={item.icon === "location_on" ? "_blank" : undefined} rel="noreferrer" className="flex items-center gap-6 group cursor-pointer">
+                  <a key={item.label} href={item.href} className="flex items-center gap-6 group cursor-pointer">
                     <div className="w-10 h-10 flex items-center justify-center border border-[#c5c6cd] group-hover:bg-black group-hover:text-white transition-colors shrink-0">
                       <span className="material-symbols-outlined">{item.icon}</span>
                     </div>
@@ -72,20 +71,16 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Map Visual */}
-              <div className="relative h-[300px] border border-[#c5c6cd] overflow-hidden group">
-                <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa0FrinOxuGyG008ie_FqiGfXOSDO84gqTR3bNPPqnmULOKD4eMN-xaFQIvnL3EX98IIrqOozwF7r_gNv26GhXHwk47DAebRs2JR7yExG_ewQ4YeW-fnqvmyn15K9f1pa_Xf_Xy2Z3dEuQP1bteqx9JZNX2lP4tix3sDF2zrtuc8U8_0BCT51LzORRxl35lIjMhTWXRD2Rve4iQgMRBqStrMuN_e8F_upyC8xhmo8jk-dnAe1hJpvmITJIR6_ZjNocaNwX5XfwEw"
-                  alt="Location map"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-                <div className="absolute bottom-6 left-6 bg-white p-4 border border-[#c5c6cd] shadow-lg max-w-[200px]">
-                  <p className="font-inter font-semibold text-xs mb-1 text-[#44474d] uppercase tracking-wide">LOCATED IN</p>
-                  <p className="font-inter font-bold text-base">Caledon East, Ontario</p>
+              {/* Service Area */}
+              <div className="bg-[#006399]/10 border border-[#006399]/30 p-8 space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-[#006399]">location_on</span>
+                  <h4 className="font-montserrat text-lg font-bold text-black">Service Area</h4>
                 </div>
+                <p className="font-inter text-base text-black font-semibold">Servicing the GTA area.</p>
+                <p className="font-inter text-base text-[#44474d]">Can ship across Canada.</p>
               </div>
+
             </div>
 
             {/* ── Right Form ── */}

@@ -16,12 +16,7 @@ const skates = [
   { name: "Bauer Supreme Skates", price: "$650", desc: "Available in most sizes. Reach out for details.", status: "In Stock", statusClass: "text-[#006399] bg-[#67bafd]/20 border border-[#67bafd]", img: "/bauer-supreme-skate.jpg" },
 ];
 
-const accessories = [
-  { name: "Premium Stick Tape", desc: "Bulk packs available", price: "$5 – $45", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDdArJ8pI-915LEBqltSyGk775lyB4XXfX_Z6biMZPisF2pYx0mFK42SjC8YIawR8g5n7zVG0ab8a7pMksAdGLjG-xFRjC5UVdJA71tEeevkZukeUsW5a_odjqIJPz5A_FY1E1rxlsgT66Whb7Ydr2iTlnFJrQUN-9AenualjP4wIpMhe8VBPY105KNLTlZAOieYhPlV6wuq9WGH7EPVt0pT_1xiGTr8wjFe_F5cDzjmYoehoD3Sb3YoS40hfO9_tWVFmgauGkeTg" },
-  { name: "Elite Gear Bags", desc: "Waterproof ventilating", price: "$80 – $150", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD22Kmj_6a7T5GrV3Eyf3MbCgcBT2qWdZykWEcewwfO_EXrxQNLXuHYD8eab5co-yRxdGmmH0TNMHlT6n8Md78-GJtSDW_1SayuiL32wt_uriJcESL3XKaSbQwNSGHtZ73vT3oQa2J-q4UugXe5f4YXxAMr99qiODLfpeU73369VjuhcSupGSYhRMHFh3YjyUY7i3c2vcJYVNaY30aQ5PqRNJ7I6K_kAA_zFlntukzK4eFMc-Y-zCftB1MnKG53AixNZR26JjaLgg" },
-  { name: "Game Pucks (12-Pack)", desc: "Standard 6oz weight", price: "$25 – $35", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDYCBQWMErtXonHiqDYcvIzhklUZ8b5sPBAjf0yftk15DgxUayVICeaTyzb0Qa9JgalLNPMIlriTeo2d3BDpUQCdC3OG_1EQiG51l_YGDTQSkBHYb_R6pmTNR1R5lVuxgAMUexS1zIsgju9Tdt5NX_PwPQwVREO2CfVAmkVXB-uxUroAhVQLtBy0mcpLvf6RU3HZ5k9mXsHcz32Hc4UIuYNG6I64rOo7LpwI-O3VNQ1oRby38dHZ1zyFQ3moG7qB8ZxEznYH0Zxeg" },
-  { name: "Pro Skate Guards", desc: "Absorbent inner lining", price: "$15 – $25", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_RejaOq5fNqclv3h2USr02PlOtGkagGIN5XZmf4MuBw4ai29Y1kYkfOhRgwQt-NTI8UAxbgYy5cM-FGQ-kpFqYrWFkrql3Ak-h5NsISe39XBSt-DyEOZGn8xeRjHrOcYElfZWJtXnYV3he0XDwoV6IJYd1G-S7dBbzp24IY9PkiUUbbwBIjNpgBwHxAsDeHzh6QfsUkW9rD2Clo9h8w0QLK9oXUuWQ-B_Ze8ICsgN6Mw8WPhW2FSrXAAfeuzHWkxlKBA8Bw0dKQ" },
-];
+const accessories: never[] = [];
 
 export default function ProductsPage() {
   return (
@@ -175,19 +170,21 @@ export default function ProductsPage() {
           {/* Accessories */}
           <aside className="space-y-8">
             <h2 className="font-montserrat text-[32px] font-bold text-black">Accessories</h2>
-            <div className="bg-[#edeeef] rounded-xl p-6 border border-[#c5c6cd] max-h-[600px] overflow-y-auto custom-scrollbar space-y-4">
-              {accessories.map((item) => (
-                <div key={item.name} className="flex gap-4 p-3 bg-white rounded border border-transparent hover:border-[#006399] transition-colors cursor-pointer group">
-                  <div className="w-20 h-20 bg-[#f8f9fa] rounded-sm overflow-hidden shrink-0 relative">
-                    <Image src={item.img} alt={item.name} fill className="object-cover" />
-                  </div>
-                  <div>
-                    <h5 className="font-inter font-semibold text-sm text-black group-hover:text-[#006399] transition-colors">{item.name}</h5>
-                    <p className="font-inter text-xs text-[#44474d] mb-1">{item.desc}</p>
-                    <span className="font-inter font-semibold text-sm text-black">{item.price}</span>
-                  </div>
+            <div className="bg-[#edeeef] rounded-xl border border-[#c5c6cd] overflow-hidden">
+              <div className="relative h-[250px]">
+                <Image src="/glo1.webp" alt="Hockey Accessories" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <p className="font-montserrat text-xl font-bold mb-1">Too many great products to list</p>
+                  <p className="font-inter text-sm text-white/80">Please reach out for Pricing and Availability</p>
                 </div>
-              ))}
+              </div>
+              <div className="p-6">
+                <Link href="/contact" className="w-full bg-black text-white py-3 rounded font-inter font-semibold text-sm flex justify-center items-center gap-2 hover:bg-[#006399] transition-colors">
+                  <span className="material-symbols-outlined text-lg">mail</span>
+                  Contact for Pricing
+                </Link>
+              </div>
             </div>
           </aside>
         </div>
@@ -196,56 +193,47 @@ export default function ProductsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20" id="protective">
           <div className="space-y-8">
             <h2 className="font-montserrat text-[32px] font-bold text-black">Protective Equipment</h2>
-            {[
-              { name: "Pro Shoulder Pads", price: "$140 – $210", desc: "High-impact protection with breathable airflow technology.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB3OcB23a7CT6GJykkpcmeTgSPO5SSWRLo_ffygXW9DXmc7SIjNrWdrLckAOrZmjn3PKvy06ejGAMXns5AvAfXfNX6DeHrnvzGxL1migiJmnTJmIO98mvz5hgVUxw46fCcYfcySgbFN1asQIjmoJayVxZe0xoCwos1camUvKbaRu6tsrj1eiiuZ52SeyTfdkQBpLm4SBrunj63rRJnTyp5VjnpbPvfLAtPtMCRQypJ1OSQ6Op3tmQH9BjaK0sYQlRO5Bmn7n7YolQ" },
-              { name: "Elite Shin Guards", price: "$110 – $160", desc: "Extended knee coverage with moisture-wicking comfort liner.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfSaF4I4mMP_c_5K95jYL0a5TaYzWOJYxs4VGNY0dqUt3YWKbKdQKwNeDeK7bhU30J5XlVuXMQ57Lgs8vxpfbqy-F7Fso51ZfJF4PcIE4kna0XYGC_tP6u4psvkJjKa00LjpuJc4To4MuJITyjfOv1RzBVvIoyDRembg4KTLZKTkODxem8Sx-erxWPjBLgT3k5KtOAExHKbdv5k2IsMLz0IFxR9mFr06Cn9eN17UBUmU7Im-9t1400q5-iVTfEZlgBeyMrXhcJng" },
-            ].map((item) => (
-              <div key={item.name} className="bg-white border border-[#c5c6cd] rounded p-4 product-card-hover flex items-center gap-6">
-                <div className="w-32 h-32 bg-[#f8f9fa] rounded overflow-hidden shrink-0 relative">
-                  <Image src={item.img} alt={item.name} fill className="object-contain p-2" />
-                </div>
-                <div className="flex-grow">
-                  <h4 className="font-montserrat text-2xl font-bold text-black">{item.name}</h4>
-                  <p className="font-inter text-sm text-[#44474d] mb-2">{item.desc}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="font-montserrat text-2xl font-bold text-black">{item.price}</span>
-                    <Link href="/contact" className="text-[#006399] font-inter font-semibold text-sm flex items-center">
-                      Contact <span className="material-symbols-outlined text-lg">chevron_right</span>
-                    </Link>
-                  </div>
+            <div className="rounded-xl overflow-hidden border border-[#c5c6cd]">
+              <div className="relative h-[350px]">
+                <Image src="/ccm-skates-catalog-cropped.png" alt="CCM Protective Equipment" fill className="object-cover object-top" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <p className="font-montserrat text-2xl font-bold mb-2">A wide range of Protective to choose from.</p>
+                  <p className="font-inter text-base text-white/80 mb-3">
+                    Go to <a href="https://ccmhockey.com" target="_blank" rel="noreferrer" className="underline text-[#67bafd] font-semibold">ccmhockey.com</a> to view everything I can order for you.
+                  </p>
+                  <p className="font-montserrat text-lg font-bold text-[#ed4a14]">Reach out for Pricing</p>
                 </div>
               </div>
-            ))}
+              <div className="p-6 bg-white">
+                <Link href="/contact" className="w-full bg-black text-white py-3 rounded font-inter font-semibold text-sm flex justify-center items-center gap-2 hover:bg-[#006399] transition-colors">
+                  <span className="material-symbols-outlined text-lg">mail</span>
+                  Contact for Pricing
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-8" id="knapper">
             <h2 className="font-montserrat text-[32px] font-bold text-black">Knapper Products</h2>
-            <div className="bg-[#67bafd]/10 border border-[#006399]/20 rounded-xl p-8 h-full">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="material-symbols-outlined text-[#006399]" style={{ fontSize: "48px" }}>sports_hockey</span>
-                <div>
-                  <h3 className="font-montserrat text-2xl font-bold text-black">Knapper Specialists</h3>
-                  <p className="font-inter text-base text-[#44474d]">Ball hockey and dek hockey excellence.</p>
+            <div className="rounded-xl overflow-hidden border border-[#c5c6cd]">
+              <div className="relative min-h-[350px]">
+                <Image src="/pd1.webp" alt="Knapper Gear" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white text-center">
+                  <h3 className="font-montserrat text-3xl font-bold mb-4">Knapper Gear</h3>
+                  <p className="font-inter text-base text-white/80 mb-3 max-w-sm mx-auto">
+                    Go to <a href="https://knapper.com" target="_blank" rel="noreferrer" className="underline text-[#67bafd] font-semibold">knapper.com</a> to view what&apos;s available.
+                  </p>
+                  <p className="font-montserrat text-lg font-bold text-[#ed4a14]">Reach out for Pricing</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { name: "Knapper Gloves", price: "$85 – $130" },
-                  { name: "Knapper Pads", price: "$220 – $450" },
-                ].map((item) => (
-                  <div key={item.name} className="bg-white p-4 rounded border border-[#c5c6cd]">
-                    <div className="font-inter font-semibold text-sm text-black mb-1">{item.name}</div>
-                    <div className="font-montserrat text-2xl font-bold text-[#006399] mb-2">{item.price}</div>
-                    <Link href="/contact" className="w-full border border-[#006399] text-[#006399] py-2 rounded font-inter text-xs font-semibold hover:bg-[#006399] hover:text-white transition-all block text-center">
-                      Order
-                    </Link>
-                  </div>
-                ))}
+              <div className="p-6 bg-white">
+                <Link href="/contact" className="w-full bg-black text-white py-3 rounded font-inter font-semibold text-sm flex justify-center items-center gap-2 hover:bg-[#006399] transition-colors">
+                  <span className="material-symbols-outlined text-lg">mail</span>
+                  Contact for Pricing
+                </Link>
               </div>
-              <Link href="/contact" className="mt-8 p-4 bg-black text-white rounded flex justify-between items-center">
-                <span className="font-inter text-base">View Full Knapper Catalog</span>
-                <span className="material-symbols-outlined">launch</span>
-              </Link>
             </div>
           </div>
         </div>
