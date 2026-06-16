@@ -9,7 +9,12 @@ export const metadata: Metadata = {
   description: "Shop elite hockey sticks, skates, CCM, and Knapper gear.",
 };
 
-const sticks: never[] = [];
+const sticks = [
+  { name: "Pro Series Carbon Stick", price: "$299 – $349", desc: "Mid-kick point for maximum power transfer and accuracy.", badge: "New Arrival", badgeColor: "bg-black", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCXBcf0jlrHu_uGRKgeVBdDnxaASMXdD4AxKdRaxb2i93Vz7n2XmPWLiqNu8ED3pNhS0CXzET6EW1o9eamaf33QcNXuuWVY4TYD1jnS5HFfwmIG7tSQi6KU46Vah_pfW09xQWa6EKiOwzr3Ov-QDTTWaguIaxK6PCmRhSxcvVwEYqkySnjzOBL8Wz-gHEr8oKbMDm1lScwrEZP1msKz_YD3PX6kJdVi98GayYb797uVr-_CxGnA9Eygmh69bSDoj2a7HIcwc6udEA" },
+  { name: "Elite Flex 85 Stick", price: "$250 – $280", desc: "Low-kick profile designed for rapid release and quick snaps.", badge: null, img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDrsrlHqExpajn_L1EJuGbgRvKZoUvbH1sZyRk3VNCx3w1ZOVCVTK2Ns6P88eOP45YLR859WGEFrV0aQoTYBkANTGj3u_sRRxBTCQ7XbqbT3ZBCthTG2StZyro-M8AF7Wk4dHglqKOnpbYkw-sIj8Ejnc-ZGEDaLtFv0NriR8idIPVOrco4P2y_Zldzp80x-yyFrRwCgIqyM67Nky7LLjr7tR9CQSGDiK2oaUDDhj-ZnUJhEKs-3r-ZR4jsvutfkLh8RQxmPVxGwQ" },
+  { name: "Shadow Team Stick", price: "$180 – $210", desc: "Lightweight design optimised for team performance and durability.", badge: null, img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCP-rxJ8uuCaw1ucxlpgnZB4Gok8SIkHepTYZbmRPEtPatp84DwBhB8HvWqhPmmFI2xKO0LQ32FwnWjaF_-6yZn3YIrTIrdXIIYXJaBNmchCjH-0ft9152rx6uUjUfRobcR7HY7nNGQv70oh1i-n8TBhBWYyAOzmBfn04dcn6n3dsGBGn64eqn7PKf-XP8_vxFaxN9czSw-lfYS7kPkUHqWAWFuXKupF2Qz3j2Di_jU0k_ofJ5h9jkSlrHcnjsKyxNV5quEzDbqKw" },
+  { name: "Youth Core Stick", price: "$85 – $110", desc: "Scaled for future stars, focusing on flex and puck control basics.", badge: "Sale", badgeColor: "bg-[#ed4a14]", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCOfPSYU-xVliaNvEpKUt2AIjQ0MQiJSkP5E8PaisLYWm0iQyBqocJXjBELovubERfmGsGT4WiozomnQqoYdmHHoJvCWlsnzM7ThTXhqPY87f4-yFec-pH7BTYlfO-VtXdx3fARGMkLl2SZkelvgUuZVj2m_r8Rg3Zl0IVRgG_63fzmmKCLDCOu1VkfMJeYarWQe6rjy6qy7Liu0vmGR5WxwYDCOWCzAbnvqd6YF49M_ajz5I0sPpN2Svtib-RQO75KTcFEsMpnDw" },
+];
 
 const skates = [
   { name: "Bauer Vapor FlyLite Skates", price: "Coming in July", desc: "Next-generation Vapor fit with FlyLite technology for explosive speed and agility.", status: "Coming Soon", statusClass: "text-[#ed4a14] bg-[#ed4a14]/10 border border-[#ed4a14]", img: "/bauer-vapor-flylite.png" },
@@ -83,27 +88,28 @@ export default function ProductsPage() {
               <p className="font-inter text-base text-[#44474d]">Precision-balanced tools for elite playmakers.</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-b from-[#003a5c] to-black">
-              <Image src="/bauer-sticks.png" alt="Hockey Sticks" fill className="object-cover" />
-            </div>
-            <div className="space-y-6">
-              <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
-                <h3 className="font-montserrat text-2xl font-bold text-black mb-2">Senior &amp; Intermediate Sticks</h3>
-                <div className="font-montserrat text-[48px] font-extrabold text-black">$200</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {sticks.map((p) => (
+              <div key={p.name} className="bg-white border border-[#c5c6cd] rounded p-4 product-card-hover flex flex-col h-full">
+                <div className="aspect-square bg-[#f8f9fa] rounded-sm mb-4 overflow-hidden relative">
+                  <Image src={p.img} alt={p.name} fill className="object-contain p-2" />
+                  {p.badge && (
+                    <span className={`absolute top-2 left-2 ${p.badgeColor} text-white text-[10px] font-inter font-semibold px-2 py-1 uppercase tracking-widest`}>
+                      {p.badge}
+                    </span>
+                  )}
+                </div>
+                <h4 className="font-montserrat text-2xl font-bold text-black mb-1">{p.name}</h4>
+                <p className="font-inter text-sm text-[#44474d] mb-4 flex-grow">{p.desc}</p>
+                <div className="mt-auto">
+                  <div className="font-montserrat text-2xl font-bold text-black mb-4">{p.price}</div>
+                  <Link href="/contact" className="w-full bg-[#006399] text-white py-3 rounded font-inter font-semibold text-sm flex justify-center items-center gap-2 hover:bg-[#004972] transition-colors">
+                    <span className="material-symbols-outlined text-lg">mail</span>
+                    Contact to Order
+                  </Link>
+                </div>
               </div>
-              <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
-                <h3 className="font-montserrat text-2xl font-bold text-black mb-2">Junior Sticks</h3>
-                <div className="font-montserrat text-[48px] font-extrabold text-black">$180</div>
-              </div>
-              <div className="bg-[#ed4a14]/10 border border-[#ed4a14] rounded-xl p-6 text-center">
-                <span className="font-montserrat text-lg font-bold text-[#ed4a14] uppercase tracking-wide">No Warranty</span>
-              </div>
-              <Link href="/contact" className="w-full bg-black text-white py-4 rounded font-inter font-semibold text-sm flex justify-center items-center gap-2 hover:bg-[#006399] transition-colors">
-                <span className="material-symbols-outlined text-lg">mail</span>
-                Contact to Order
-              </Link>
-            </div>
+            ))}
           </div>
         </section>
 
