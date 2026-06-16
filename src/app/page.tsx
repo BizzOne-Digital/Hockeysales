@@ -20,7 +20,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-4xl px-6 flex flex-col items-center">
           <div className="w-48 h-48 mb-20 relative">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAukpKQ-_XNkJCDtndCW5Jw6AVdtXQe78IuP9FKLiBR3gK1et5Z0PYB9IMq96w7P2Kmw5NdNLbp6AWabDahDKXnyjQ_akkZdVtUsyeCRGvbIHs7gHM-mgM6TrgsToSZfG2bgJcJXinQT2atihrywJvHjjKE6XoTug9NdmZ35ti5S_TV9eeGRTSMAcAUniuaqkWwFAAu_tMlLDlBYTleq_62uMcpB8G7Hp4CjZVV_pkMwkepHifpSTnVtM0-DAUCO-BzmkKP7pTaCQ"
+              src="/logo.png"
               alt="Strides Hockey Sales Logo"
               fill
               className="object-contain drop-shadow-xl"
@@ -169,8 +169,8 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { quote: "The stick selection at Strides is unmatched. Found exactly what I needed for my shot style, and the delivery was incredibly fast.", name: "Alex MacKenzie", role: "Semi-Pro Forward" },
-            { quote: "I've been buying my Knapper gear from them for years. Their knowledge of goalie equipment and fit is the best in the business.", name: "Sarah Miller", role: "University Goalie" },
             { quote: "Excellent service and high-quality products. They really take the time to make sure you're getting the right equipment for your level.", name: "James Chen", role: "League Coordinator" },
+            { quote: "The CCM skates I got from Strides are the best I've ever worn. The fit was perfect right out of the box. I won't shop anywhere else.", name: "Marcus Thompson", role: "AAA Defenseman" },
           ].map((r) => (
             <div key={r.name} className="bg-white p-8 border border-[#c5c6cd] rounded-lg">
               <div className="flex text-[#006399] mb-4">
