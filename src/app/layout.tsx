@@ -3,7 +3,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Strides Hockey Sales | Elite Hockey Equipment",
-  description: "Your trusted source for professional-grade hockey equipment. Shop hockey sticks, skates, and elite gear from CCM and Knapper.",
+  description:
+    "Your trusted source for professional-grade hockey equipment. Shop hockey sticks, skates, and elite gear from CCM and Knapper.",
+  icons: {
+    icon: "/mainlogo1.png",
+    shortcut: "/mainlogo1.png",
+    apple: "/mainlogo1.png",
+  },
 };
 
 export default function RootLayout({
@@ -14,10 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"

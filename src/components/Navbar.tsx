@@ -28,7 +28,7 @@ export default function Navbar() {
   return (
     <nav
       className={
-        "bg-white border-b border-[#c5c6cd] sticky top-0 z-50 shadow-sm transition-all duration-300 " +
+        "bg-[#0a1628] border-b border-[#1a2d4a] sticky top-0 z-50 shadow-lg transition-all duration-300 " +
         (scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20")
       }
     >
@@ -40,7 +40,6 @@ export default function Navbar() {
           <div className="relative w-20 h-20 sm:w-24 sm:h-24">
             <Image src="/mainlogo.png" alt="Strides Hockey Sales" fill className="object-contain" />
           </div>
-          
         </Link>
 
         <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
@@ -53,8 +52,8 @@ export default function Navbar() {
                 className={
                   "font-inter text-sm font-semibold tracking-wide transition-colors duration-200 " +
                   (isActive
-                    ? "text-black font-bold border-b-2 border-black pb-1"
-                    : "text-[#44474d] hover:text-black")
+                    ? "text-white font-bold border-b-2 border-white pb-1"
+                    : "text-[#8facc8] hover:text-white")
                 }
               >
                 {link.label}
@@ -64,17 +63,17 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3 sm:gap-6">
-          <button className="material-symbols-outlined text-[#44474d] hover:text-black hidden md:block">
+          <button className="material-symbols-outlined text-[#8facc8] hover:text-white hidden md:block">
             search
           </button>
           <Link
             href="/products"
-            className="bg-black text-white font-inter text-xs sm:text-sm font-semibold tracking-wide px-3 sm:px-6 py-2 sm:py-3 rounded hover:bg-[#006399] active:scale-95 transition-all duration-150 hidden sm:inline-block"
+            className="bg-white text-[#0a1628] font-inter text-xs sm:text-sm font-semibold tracking-wide px-3 sm:px-6 py-2 sm:py-3 rounded hover:bg-[#67bafd] active:scale-95 transition-all duration-150 hidden sm:inline-block"
           >
             Shop Now
           </Link>
           <button
-            className="md:hidden material-symbols-outlined text-[#44474d] text-2xl"
+            className="md:hidden material-symbols-outlined text-[#8facc8] text-2xl"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? "close" : "menu"}
@@ -83,7 +82,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-[#c5c6cd] px-4 sm:px-8 py-4 space-y-1 shadow-lg">
+        <div className="md:hidden bg-[#0a1628] border-t border-[#1a2d4a] px-4 sm:px-8 py-4 space-y-1 shadow-lg">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -94,8 +93,8 @@ export default function Navbar() {
                 className={
                   "block font-inter text-sm font-semibold py-2.5 px-2 rounded tracking-wide transition-colors " +
                   (isActive
-                    ? "text-black bg-gray-100"
-                    : "text-[#44474d] hover:bg-gray-50")
+                    ? "text-white bg-[#1a2d4a]"
+                    : "text-[#8facc8] hover:bg-[#1a2d4a] hover:text-white")
                 }
               >
                 {link.label}
@@ -105,7 +104,7 @@ export default function Navbar() {
           <Link
             href="/products"
             onClick={() => setMobileOpen(false)}
-            className="block text-center bg-black text-white font-inter text-sm font-semibold tracking-wide px-4 py-3 rounded mt-3 hover:bg-[#006399] transition-colors"
+            className="block text-center bg-white text-[#0a1628] font-inter text-sm font-semibold tracking-wide px-4 py-3 rounded mt-3 hover:bg-[#67bafd] transition-colors"
           >
             Shop Now
           </Link>
