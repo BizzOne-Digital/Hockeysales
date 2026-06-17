@@ -20,7 +20,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-4xl px-6 flex flex-col items-center">
           <div className="w-48 h-48 mb-20 relative">
             <Image
-              src="/logo.png"
+              src="/mainlogo1.png"
               alt="Strides Hockey Sales Logo"
               fill
               className="object-contain drop-shadow-xl"

@@ -37,8 +37,8 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-3"
         >
-          <div className="relative w-10 h-10 sm:w-12 sm:h-12">
-            <Image src="/logo.png" alt="Strides Hockey Sales" fill className="object-contain" />
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24">
+            <Image src="/mainlogo.png" alt="Strides Hockey Sales" fill className="object-contain" />
           </div>
           
         </Link>

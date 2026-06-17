@@ -85,11 +85,11 @@ export default function ProductsPage() {
             <div className="space-y-6">
               <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
                 <h3 className="font-montserrat text-2xl font-bold text-black mb-2">Senior &amp; Intermediate Sticks</h3>
-                <div className="font-montserrat text-[48px] font-extrabold text-black">$200</div>
+                <div className="font-montserrat text-[48px] font-extrabold text-black">$220</div>
               </div>
               <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
                 <h3 className="font-montserrat text-2xl font-bold text-black mb-2">Junior Sticks</h3>
-                <div className="font-montserrat text-[48px] font-extrabold text-black">$180</div>
+                <div className="font-montserrat text-[48px] font-extrabold text-black">$200</div>
               </div>
               <div className="bg-[#ed4a14]/10 border border-[#ed4a14] rounded-xl p-6 text-center">
                 <span className="font-montserrat text-lg font-bold text-[#ed4a14] uppercase tracking-wide">No Warranty</span>
@@ -195,7 +195,7 @@ export default function ProductsPage() {
             <h2 className="font-montserrat text-[32px] font-bold text-black">Protective Equipment</h2>
             <div className="rounded-xl overflow-hidden border border-[#c5c6cd]">
               <div className="relative h-[350px]">
-                <Image src="/ccm-skates-catalog-cropped.png" alt="CCM Protective Equipment" fill className="object-cover object-top" />
+                <Image src="/img.jpeg" alt="CCM Protective Equipment" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                   <p className="font-montserrat text-2xl font-bold mb-2">A wide range of Protective to choose from.</p>
@@ -237,6 +237,28 @@ export default function ProductsPage() {
             </div>
           </div>
         </div>
+
+        {/* ── Kobe Sportswear ── */}
+        <section className="mb-20 bg-black text-white rounded-xl overflow-hidden" id="kobe">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="relative min-h-[350px] bg-white flex items-center justify-center p-12">
+              <div className="relative w-full h-[280px]">
+                <Image src="/logo.png" alt="Kobe Sportswear" fill className="object-contain" />
+              </div>
+            </div>
+            <div className="p-8 md:p-16 flex flex-col justify-center">
+              <div className="font-inter font-semibold text-sm text-[#cde5ff] mb-2 tracking-[0.2em] uppercase">Jerseys &amp; Apparel</div>
+              <h2 className="font-montserrat text-[48px] font-extrabold mb-6">Kobe Sportswear</h2>
+              <p className="font-inter text-lg text-white/70 mb-6">
+                Go to <a href="https://kobesportswear.com" target="_blank" rel="noreferrer" className="underline text-[#67bafd] font-semibold">kobesportswear.com</a> to look at their great selection of Jerseys, Socks and Apparel.
+              </p>
+              <p className="font-montserrat text-xl font-bold text-[#ed4a14] mb-8">Reach out for Pricing</p>
+              <Link href="/contact" className="bg-white text-black px-10 py-4 rounded font-inter font-semibold text-sm w-fit hover:bg-[#cde5ff] transition-colors">
+                Contact for Pricing
+              </Link>
+            </div>
+          </div>
+        </section>
 
         {/* ── Bottom CTA ── */}
         <section className="bg-[#e7e8e9] rounded-2xl p-20 text-center border border-[#c5c6cd]">
