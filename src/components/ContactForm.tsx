@@ -5,21 +5,40 @@ import { useState } from "react";
 export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong.");
+      }
+
       setSubmitted(true);
       setForm({ name: "", email: "", phone: "", message: "" });
       setTimeout(() => setSubmitted(false), 5000);
-    }, 1200);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to send. Please try again.";
+      setError(message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -86,6 +105,11 @@ export default function ContactForm() {
       {submitted && (
         <div className="p-4 bg-[#cde5ff] text-[#001d32] font-inter font-semibold text-center rounded">
           ✓ Message sent successfully! We will be in touch soon.
+        </div>
+      )}
+      {error && (
+        <div className="p-4 bg-red-50 text-red-600 font-inter font-semibold text-center rounded border border-red-200">
+          {error}
         </div>
       )}
     </form>
