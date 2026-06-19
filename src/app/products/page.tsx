@@ -9,11 +9,70 @@ export const metadata: Metadata = {
   description: "Shop elite hockey sticks, skates, CCM, and Knapper gear.",
 };
 
-const sticks: never[] = [];
+const stickInventory = [
+  { model: "Tracer", brand: "Bauer", items: [
+    { curve: "P92", flex: "70, 87, 102", hand: "LH" }, { curve: "P28", flex: "70, 87, 102", hand: "LH" }, { curve: "P88", flex: "70, 77, 87", hand: "LH" },
+    { curve: "P28", flex: "77, 87", hand: "RH" }, { curve: "P88", flex: "87", hand: "RH" },
+    { curve: "P92", flex: "40, 50, 55, 65", hand: "LH" }, { curve: "P92", flex: "40, 50, 65", hand: "RH" },
+  ]},
+  { model: "Twitch", brand: "Bauer", items: [
+    { curve: "P92", flex: "70, 77, 87", hand: "LH" }, { curve: "P28", flex: "70, 77, 87", hand: "LH" }, { curve: "P92", flex: "70, 77, 87", hand: "RH" }, { curve: "P28", flex: "87", hand: "RH" },
+    { curve: "P92", flex: "30, 40, 50, 55", hand: "LH" }, { curve: "P28", flex: "30, 40, 50, 55", hand: "LH" }, { curve: "P92", flex: "30, 50", hand: "RH" }, { curve: "P28", flex: "30, 50, 55", hand: "RH" },
+  ]},
+  { model: "FT8 Pro", brand: "CCM", items: [
+    { curve: "P29", flex: "70", hand: "LH" }, { curve: "P28", flex: "70, 75", hand: "LH" }, { curve: "P29", flex: "75", hand: "RH" }, { curve: "P28", flex: "75, 87, 95", hand: "RH" },
+    { curve: "P29", flex: "55, 65", hand: "LH" }, { curve: "P29", flex: "55, 65", hand: "RH" }, { curve: "P28", flex: "55, 65", hand: "RH" },
+    { curve: "P29", flex: "30, 40, 50", hand: "LH" }, { curve: "P28", flex: "30, 40, 50", hand: "LH" }, { curve: "P29", flex: "30, 40, 50", hand: "RH" }, { curve: "P28", flex: "30, 40, 50", hand: "RH" },
+  ]},
+  { model: "FT9 Pro", brand: "CCM", isNew: true, items: [
+    { curve: "P29", flex: "70, 75, 85", hand: "LH" }, { curve: "P28", flex: "70, 75, 85", hand: "LH" }, { curve: "P29", flex: "70, 75, 85", hand: "RH" }, { curve: "P28", flex: "70, 75, 85", hand: "RH" },
+    { curve: "P29", flex: "55, 65", hand: "LH" }, { curve: "P28", flex: "55, 65", hand: "LH" }, { curve: "P29", flex: "55, 65", hand: "RH" }, { curve: "P28", flex: "55, 65", hand: "RH" },
+  ]},
+  { model: "Trigger 10 Pro", brand: "CCM", items: [
+    { curve: "P29", flex: "70, 75, 85", hand: "LH" }, { curve: "P28", flex: "70, 75, 85, 95", hand: "LH" }, { curve: "P92", flex: "70, 75", hand: "RH" }, { curve: "P28", flex: "70, 75, 85, 95", hand: "RH" },
+    { curve: "P29", flex: "30, 40, 50, 55, 65", hand: "LH" }, { curve: "P28", flex: "30, 55, 65", hand: "LH" }, { curve: "P29", flex: "30, 40, 50, 55", hand: "RH" }, { curve: "P28", flex: "50, 55", hand: "RH" },
+  ]},
+  { model: "Vizion", brand: "CCM", items: [
+    { curve: "P29", flex: "70, 75, 85", hand: "LH" }, { curve: "P28", flex: "70, 75", hand: "LH" }, { curve: "P29", flex: "70, 75, 85", hand: "RH" }, { curve: "P28", flex: "70, 75, 85", hand: "RH" },
+    { curve: "P29", flex: "40, 50, 55, 65", hand: "LH" }, { curve: "P28", flex: "40", hand: "LH" },
+  ]},
+  { model: "FlyLite", brand: "Bauer", items: [
+    { curve: "P92", flex: "70, 102", hand: "LH" }, { curve: "P28", flex: "87, 102", hand: "LH" }, { curve: "P29", flex: "70, 87", hand: "RH" }, { curve: "P28", flex: "87", hand: "RH" },
+    { curve: "P92", flex: "30, 40", hand: "LH" }, { curve: "P28", flex: "28, 40", hand: "LH" }, { curve: "P92", flex: "30", hand: "RH" },
+  ]},
+  { model: "Proto 2", brand: "Bauer", items: [
+    { curve: "P92", flex: "70, 77, 87", hand: "LH" }, { curve: "P28", flex: "70, 77, 87", hand: "LH" }, { curve: "P92", flex: "70, 77, 87", hand: "RH" }, { curve: "P28", flex: "70, 77, 87", hand: "RH" },
+    { curve: "P28", flex: "40, 50, 55, 65", hand: "LH" }, { curve: "P92", flex: "40, 50, 55, 65", hand: "LH" }, { curve: "P92", flex: "40, 50, 55", hand: "RH" }, { curve: "P28", flex: "30, 40, 50, 55, 65", hand: "RH" },
+  ]},
+  { model: "Pulse", brand: "Bauer", items: [
+    { curve: "P92", flex: "70, 77, 87, 102", hand: "LH" }, { curve: "P28", flex: "70, 77, 87, 102", hand: "LH" }, { curve: "P92", flex: "70, 77, 87, 102", hand: "RH" }, { curve: "P28", flex: "70, 77, 87, 102", hand: "RH" },
+    { curve: "P92", flex: "30, 40, 50, 55, 65", hand: "LH" }, { curve: "P28", flex: "30, 50, 55, 65", hand: "LH" }, { curve: "P92", flex: "50, 55, 65", hand: "RH" }, { curve: "P28", flex: "50, 55, 65", hand: "RH" },
+  ]},
+  { model: "XF Ghost", brand: "Bauer", items: [
+    { curve: "P29", flex: "70, 75, 85", hand: "LH" }, { curve: "P28", flex: "70, 75, 85", hand: "LH" }, { curve: "P88", flex: "70", hand: "LH" },
+    { curve: "P29", flex: "55, 65", hand: "LH" }, { curve: "P28", flex: "55, 65", hand: "LH" }, { curve: "P29", flex: "55, 65", hand: "RH" }, { curve: "P28", flex: "55", hand: "RH" },
+  ]},
+  { model: "Hyper 2", brand: "Bauer", items: [
+    { curve: "P92", flex: "65", hand: "LH" }, { curve: "P28", flex: "65, 87", hand: "LH" }, { curve: "P28", flex: "55, 65, 87", hand: "RH" },
+  ]},
+  { model: "Trigger 9 Pro", brand: "CCM", items: [
+    { curve: "P28", flex: "75, 85", hand: "LH" }, { curve: "P28", flex: "85", hand: "RH" },
+  ]},
+  { model: "FT7 Pro", brand: "CCM", items: [
+    { curve: "P29", flex: "70, 75", hand: "LH" }, { curve: "P28", flex: "75", hand: "LH" }, { curve: "P29", flex: "70, 75, 85", hand: "RH" }, { curve: "P28", flex: "75, 85", hand: "RH" },
+    { curve: "P29", flex: "65", hand: "LH" }, { curve: "P29", flex: "65", hand: "RH" },
+  ]},
+  { model: "Proto R", brand: "Bauer", items: [
+    { curve: "P92", flex: "70, 77, 87", hand: "LH" }, { curve: "P28", flex: "77, 87", hand: "LH" }, { curve: "P28", flex: "87", hand: "RH" },
+    { curve: "P92", flex: "50, 65", hand: "LH" }, { curve: "P28", flex: "40", hand: "LH" },
+  ]},
+];
+
+const shadowSizes = ["4.5 Fit 3", "5.0 Fit 2", "5.5 Fit 2", "6.0 Fit 2", "6.5 Fit 2", "7.0 Fit 2", "7.5 Fit 2", "8.0 Fit 2", "8.5 Fit 2", "9.0 Fit 2", "9.5 Fit 2"];
 
 const skates = [
   { name: "Bauer Vapor FlyLite Skates", price: "Coming in July", desc: "Next-generation Vapor fit with FlyLite technology for explosive speed and agility.", status: "Coming Soon", statusClass: "text-[#ed4a14] bg-[#ed4a14]/10 border border-[#ed4a14]", img: "/bauer-vapor-flylite.png" },
-  { name: "Bauer Supreme Skates", price: "$650", desc: "Available in most sizes. Reach out for details.", status: "In Stock", statusClass: "text-[#006399] bg-[#67bafd]/20 border border-[#67bafd]", img: "/bauer-supreme-skate.jpg" },
+  { name: "Bauer Supreme Skates", price: "$650", desc: "Available in most sizes. Reach out for details.", status: "In Stock", statusClass: "text-[#006399] bg-[#67bafd]/20 border border-[#67bafd]", img: "/bauer-supreme-skate.jpg", sizes: shadowSizes },
 ];
 
 const accessories: never[] = [];
@@ -72,13 +131,11 @@ export default function ProductsPage() {
 
         {/* ── Sticks ── */}
         <section className="mb-20" id="sticks">
-          <div className="flex justify-between items-end mb-8">
-            <div>
-              <h2 className="font-montserrat text-[32px] font-bold text-black">Hockey Sticks</h2>
-              <p className="font-inter text-base text-[#44474d]">Precision-balanced tools for elite playmakers.</p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="font-montserrat text-[48px] font-extrabold text-black mb-2">Sticks Available for Order</h2>
+            <p className="font-inter text-base text-[#44474d]">Precision-balanced tools for elite playmakers.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
             <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-b from-[#003a5c] to-black">
               <Image src="/bauer-sticks.png" alt="Hockey Sticks" fill className="object-cover" />
             </div>
@@ -99,6 +156,43 @@ export default function ProductsPage() {
                 Contact to Order
               </Link>
             </div>
+          </div>
+
+          {/* Inventory Table */}
+          <div className="space-y-6">
+            {stickInventory.map((stick) => (
+              <div key={stick.model} className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden">
+                <div className="bg-[#0a1628] px-6 py-4 flex items-center gap-3">
+                  <h3 className="font-montserrat text-xl font-bold text-white">{stick.model}</h3>
+                  <span className="font-inter text-xs text-[#8facc8] bg-[#1a2d4a] px-2 py-1 rounded">{stick.brand}</span>
+                  {stick.isNew && <span className="font-inter text-xs text-white bg-[#ed4a14] px-2 py-1 rounded font-bold">NEW</span>}
+                </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-[#f8f9fa] border-b border-[#c5c6cd]">
+                        <th className="text-left px-6 py-3 font-inter font-semibold text-[#44474d] text-xs uppercase tracking-wider">Curve</th>
+                        <th className="text-left px-6 py-3 font-inter font-semibold text-[#44474d] text-xs uppercase tracking-wider">Flex Options</th>
+                        <th className="text-left px-6 py-3 font-inter font-semibold text-[#44474d] text-xs uppercase tracking-wider">Hand</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {stick.items.map((item, i) => (
+                        <tr key={`${item.curve}-${item.flex}-${item.hand}`} className={i % 2 === 0 ? "bg-white" : "bg-[#f8f9fa]/50"}>
+                          <td className="px-6 py-3 font-inter font-semibold text-black">{item.curve}</td>
+                          <td className="px-6 py-3 font-inter text-[#44474d]">{item.flex}</td>
+                          <td className="px-6 py-3">
+                            <span className={`font-inter text-xs font-bold px-2 py-1 rounded ${item.hand === "LH" ? "bg-[#006399]/10 text-[#006399]" : "bg-[#ed4a14]/10 text-[#ed4a14]"}`}>
+                              {item.hand}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -159,6 +253,16 @@ export default function ProductsPage() {
                     <span className="font-montserrat text-2xl font-bold text-black">{s.price}</span>
                     <span className={`font-inter text-xs px-2 py-1 rounded ${s.statusClass}`}>{s.status}</span>
                   </div>
+                  {"sizes" in s && s.sizes && (
+                    <div className="mb-4 p-4 bg-[#f8f9fa] rounded border border-[#c5c6cd]">
+                      <p className="font-inter font-semibold text-xs text-[#44474d] uppercase tracking-wider mb-2">Skate Sizes I Can Order</p>
+                      <div className="flex flex-wrap gap-2">
+                        {(s.sizes as string[]).map((size) => (
+                          <span key={size} className="font-inter text-xs font-semibold bg-white border border-[#c5c6cd] px-2 py-1 rounded">{size}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   <Link href="/contact" className="w-full bg-black text-white py-3 rounded font-inter font-semibold text-sm flex justify-center items-center gap-2 hover:bg-[#006399] transition-colors">
                     Contact to Order
                   </Link>
@@ -195,7 +299,7 @@ export default function ProductsPage() {
             <h2 className="font-montserrat text-[32px] font-bold text-black">Protective Equipment</h2>
             <div className="rounded-xl overflow-hidden border border-[#c5c6cd]">
               <div className="relative h-[350px]">
-                <Image src="/img.jpeg" alt="CCM Protective Equipment" fill className="object-cover object-top" />
+                <Image src="/ccm-skates-catalog-cropped.png" alt="CCM Protective Equipment" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                   <p className="font-montserrat text-2xl font-bold mb-2">A wide range of Protective to choose from.</p>
