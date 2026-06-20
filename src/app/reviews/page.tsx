@@ -2,23 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ReviewForm from "@/components/ReviewForm";
+import ReviewsList from "@/components/ReviewsList";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Customer Reviews | Strides Hockey Sales",
   description: "Read what our customers say about Strides Hockey Sales.",
 };
-
-const reviews = [
-  { name: "Alex MacKenzie", role: "Semi-Pro Forward", rating: 5, quote: "The stick selection at Strides is unmatched. Found exactly what I needed for my shot style, and the delivery was incredibly fast. The Pro Series Carbon is a game-changer.", verified: true },
-  { name: "James Chen", role: "League Coordinator", rating: 5, quote: "Excellent service and high-quality products. They really take the time to make sure you're getting the right equipment for your level. Ordered 20 sticks for our league — perfect.", verified: true },
-  { name: "Marcus Thompson", role: "AAA Defenseman", rating: 5, quote: "The CCM skates I got from Strides are the best I've ever worn. The fit was perfect right out of the box. I won't shop anywhere else for my gear.", verified: true },
-  { name: "Carly Nguyen", role: "Women's League Captain", rating: 5, quote: "Finally a hockey shop that understands what women players need. Great selection, fair prices, and genuinely helpful staff. My whole team orders from Strides now.", verified: true },
-  { name: "Derek Sullivan", role: "Youth Coach", rating: 5, quote: "Outfitted my entire team with gear from Strides. The bulk pricing was fantastic and everything arrived on time. The kids love their new equipment!", verified: true },
-  { name: "Patrick O'Brien", role: "Beer League MVP", rating: 4, quote: "Great selection and competitive prices. The online ordering was easy and shipping was fast. Would give 5 stars but I wish there were more colour options for the gloves.", verified: false },
-  { name: "Lisa Hartmann", role: "Figure to Hockey Convert", rating: 5, quote: "Switching from figure skating to hockey was intimidating, but Harvey walked me through everything I needed. Patient, knowledgeable, and they have great beginner packages.", verified: true },
-  { name: "Ryan Kowalski", role: "Professional Scout", rating: 5, quote: "I recommend Strides to every player I scout. The pro-stock inventory is incredible — you can get the same gear the pros use at a fraction of the cost. Unbeatable.", verified: true },
-];
 
 const stats = [
   { value: "4.9", label: "Average Rating", icon: "star" },
@@ -72,34 +63,7 @@ export default function ReviewsPage() {
             <h2 className="font-montserrat text-[32px] font-bold text-black mb-3">What Our Players Say</h2>
             <div className="w-20 h-1 bg-[#006399] mx-auto" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {reviews.map((review) => (
-              <div key={review.name} className="glass-card p-8 rounded-xl hover-card flex flex-col">
-                <div className="flex text-[#006399] mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <span
-                      key={i}
-                      className="material-symbols-outlined"
-                      style={{ fontSize: "18px", fontVariationSettings: i < review.rating ? "'FILL' 1" : "'FILL' 0", color: i < review.rating ? "#006399" : "#c5c6cd" }}
-                    >star</span>
-                  ))}
-                </div>
-                <p className="font-inter text-base italic text-black mb-8 flex-grow">&quot;{review.quote}&quot;</p>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-inter font-semibold text-sm text-black">{review.name}</p>
-                    <p className="font-inter text-xs text-[#44474d]">{review.role}</p>
-                  </div>
-                  {review.verified && (
-                    <div className="flex items-center gap-1 text-[#006399]">
-                      <span className="material-symbols-outlined text-base" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-                      <span className="font-inter text-xs">Verified</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          <ReviewsList />
         </section>
 
         {/* ── Why Choose Us ── */}
@@ -133,6 +97,20 @@ export default function ReviewsPage() {
                   className="object-cover"
                 />
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Leave a Review ── */}
+        <section className="py-20 px-6 max-w-[1280px] mx-auto">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-montserrat text-[32px] font-bold text-black mb-3">Leave a Review</h2>
+              <p className="font-inter text-base text-[#44474d]">Had a great experience? We&apos;d love to hear from you!</p>
+              <div className="w-20 h-1 bg-[#006399] mx-auto mt-4" />
+            </div>
+            <div className="bg-white border border-[#c5c6cd] shadow-sm rounded-xl p-8 lg:p-12">
+              <ReviewForm />
             </div>
           </div>
         </section>
