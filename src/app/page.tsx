@@ -18,18 +18,18 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center text-center overflow-hidden bg-[#f8f9fa] ice-texture">
         <div className="absolute inset-0 bg-white/40" />
         <div className="relative z-10 max-w-4xl px-6 flex flex-col items-center">
-          <div className="w-48 h-48 mb-20 relative">
+          <div className="w-40 h-40 sm:w-52 sm:h-52 mb-8 sm:mb-12 mt-12 sm:mt-16 relative">
             <Image
               src="/mainlogo1.png"
               alt="Strides Hockey Sales Logo"
               fill
-              className="object-contain drop-shadow-xl"
+              className="object-contain drop-shadow-xl mix-blend-multiply"
             />
           </div>
-          <h1 className="font-montserrat text-[48px] font-extrabold leading-tight tracking-tighter text-black mb-6">
+          <h1 className="font-montserrat text-[36px] sm:text-[48px] font-extrabold leading-tight tracking-tighter text-black mb-6">
             Your Trusted Source for Hockey Equipment
           </h1>
-          <p className="font-inter text-lg text-[#44474d] max-w-2xl mx-auto mb-12">
+          <p className="font-inter text-base sm:text-lg text-[#44474d] max-w-2xl mx-auto mb-12">
             Elite performance starts with premium gear. We supply professional-grade sticks, skates, and protective equipment for athletes who demand the best.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -105,12 +105,7 @@ export default function HomePage() {
             className="flex items-center gap-1 text-[#006399] font-inter font-semibold text-sm tracking-wide group-hover:gap-2 transition-all"
           >
             {cat.cta}
-            <span
-              className="material-symbols-outlined"
-              style={{ fontSize: "18px" }}
-            >
-              arrow_forward
-            </span>
+            <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>arrow_forward</span>
           </Link>
         </div>
       </div>
